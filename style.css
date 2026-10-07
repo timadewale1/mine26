@@ -1042,6 +1042,7 @@ li.o-sword .ot { color: var(--ink-m); }
 .vcico { color: var(--burg); font-size: 1.9rem; }
 .vcat { margin-bottom: 8px; color: var(--emerald); font-size: .82rem; font-weight: 600; letter-spacing: .03em; }
 .vnames { color: var(--ink); font-size: 1rem; line-height: 1.6; }
+.vmessage { display: block; margin-top: 8px; color: var(--ink-m); font-size: .9rem; }
 
 /* Closing and image viewer */
 #footer { padding: 72px 5vw 36px; background: var(--emerald); }
