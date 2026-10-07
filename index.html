@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mine 2026 — Inyene & Marvellous</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css"/>
+</head>
+<body>
+
+  <canvas id="heartsCanvas"></canvas>
+
+  <!-- PRELOADER -->
+  <div id="preloader">
+    <div class="pl-heart-wrap">
+      <svg class="pl-heart-svg" viewBox="0 0 100 90" fill="none">
+        <path d="M50 85C50 85 5 55 5 28C5 13 17 3 30 3C39 3 47 8 50 15C53 8 61 3 70 3C83 3 95 13 95 28C95 55 50 85 50 85Z" fill="var(--burg)" class="pl-path"/>
+      </svg>
+    </div>
+    <p class="pl-script">Inyene <span>&amp;</span> Marvellous</p>
+    <p class="pl-tag">Mine · 2026</p>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-logo">I <span>&amp;</span> M</div>
+    <ul class="nav-links" id="navLinks">
+      <button class="nav-close" id="navClose" aria-label="Close menu">&#10005;</button>
+      <li><a href="#cover">Home</a></li>
+      <li><a href="#invitation">Invitation</a></li>
+      <li><a href="#court">Court Wedding</a></li>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#prewedding">Pre-Wedding</a></li>
+      <li><a href="#programme">Programme</a></li>
+      <li><a href="#crew">Crew</a></li>
+      <li><a href="#ministers">Ministers</a></li>
+      <li><a href="#vendors">Vendors</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ════════════════════════════
+       HERO
+  ════════════════════════════ -->
+  <section id="cover">
+    <div class="hero-bg"></div>
+    <div class="hero-petals" aria-hidden="true">
+      <span class="petal"></span><span class="petal"></span><span class="petal"></span>
+      <span class="petal"></span><span class="petal"></span><span class="petal"></span>
+      <span class="petal"></span><span class="petal"></span>
+    </div>
+
+    <div class="hero-inner">
+      <div class="hero-names">
+        <div class="hn-side hn-groom">
+          <span class="hn-script">Inyene</span>
+          <span class="hn-sub">Anthony Isong · Groom</span>
+        </div>
+        <svg viewBox="0 0 40 36" class="hn-heart hn-heart-separator" aria-hidden="true"><path d="M20 33C20 33 2 21 2 10C2 4 7 1 12 1C16 1 19 3 20 6C21 3 24 1 28 1C33 1 38 4 38 10C38 21 20 33 20 33Z" fill="currentColor"/></svg>
+        <div class="hn-side hn-bride">
+          <span class="hn-script">Marvellous</span>
+          <span class="hn-sub">Chidiebere David · Bride</span>
+        </div>
+      </div>
+
+      <p class="hero-invite">Together with their families, they joyfully invite you to celebrate.</p>
+
+      <div class="hero-families">
+        <div class="hf-col">
+          <span class="hf-tag">The Groom's Family</span>
+          <strong>Elder &amp; Mrs Anthony George Isong</strong>
+          <em>Asong, Mkpat Enin LGA · Akwa Ibom State</em>
+        </div>
+        <div class="hf-amp">&amp;</div>
+        <div class="hf-col">
+          <span class="hf-tag">The Bride's Family</span>
+          <strong>Elder &amp; Mrs David Chigbu</strong>
+          <em>Umuosu Nsulu, Isiala Ngwa North · Abia State</em>
+        </div>
+      </div>
+
+      <div class="hero-strip">
+        <div class="hs-item">
+          <i class="ri-calendar-heart-line hs-icon"></i>
+          <div>
+            <span class="hs-label">Date</span>
+            <span class="hs-val">Saturday, 11th October 2026</span>
+          </div>
+        </div>
+        <div class="hs-dot"></div>
+        <div class="hs-item">
+          <i class="ri-time-line hs-icon"></i>
+          <div>
+            <span class="hs-label">Time</span>
+            <span class="hs-val">10:00 AM Prompt</span>
+          </div>
+        </div>
+        <div class="hs-dot"></div>
+        <div class="hs-item hs-venue">
+          <i class="ri-building-4-line hs-icon"></i>
+          <div>
+            <span class="hs-label">Church</span>
+            <span class="hs-val">JPEM HQ, No. 9 Army Road, Sabon-Gari, Kaduna</span>
+            <a class="hs-map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=JPEM+HQ%2C+No.+9+Army+Road%2C+Sabon-Gari%2C+Kaduna%2C+Nigeria" target="_blank" rel="noopener noreferrer"><i class="ri-map-pin-line" aria-hidden="true"></i> Get directions</a>
+          </div>
+        </div>
+        <div class="hs-dot"></div>
+        <div class="hs-item hs-venue">
+          <i class="ri-goblet-line hs-icon"></i>
+          <div>
+            <span class="hs-label">Reception</span>
+            <span class="hs-val">Joclarif Hotel &amp; Suites, Grace Land</span>
+            <a class="hs-map-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=Joclarif+Hotel+%26+Suites%2C+Grace+Land%2C+Kaduna%2C+Nigeria" target="_blank" rel="noopener noreferrer"><i class="ri-map-pin-line" aria-hidden="true"></i> Get directions</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-palette">
+        <span class="hp-label">Colours of the Day</span>
+        <div class="hp-swatches">
+          <div class="hp-swatch" style="--sw:#1B4D3E" title="Emerald Green">
+            <span class="hp-sw-dot"></span>
+            <span>Emerald</span>
+          </div>
+          <div class="hp-swatch" style="--sw:#5B8C7A" title="Mint Green">
+            <span class="hp-sw-dot"></span>
+            <span>Mint</span>
+          </div>
+          <div class="hp-swatch" style="--sw:#4A2C1A" title="Coffee Brown">
+            <span class="hp-sw-dot"></span>
+            <span>Coffee</span>
+          </div>
+          <div class="hp-swatch" style="--sw:#6B1A2B" title="Burgundy">
+            <span class="hp-sw-dot"></span>
+            <span>Burgundy</span>
+          </div>
+          <div class="hp-swatch" style="--sw:#E8A090" title="Coral Peach">
+            <span class="hp-sw-dot"></span>
+            <span>Coral</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-rsvp">
+        <span class="hp-label">
+          <i class="ri-phone-line"></i> RSVP
+        </span>
+        <div class="hr-nums">
+          <a href="tel:08162660707">08162660707</a>
+          <a href="tel:07043621193">07043621193</a>
+          <a href="tel:07066685135">07066685135</a>
+          <a href="tel:09049472454">09049472454</a>
+        </div>
+      </div>
+
+      <a href="#programme" class="hero-cta">
+        View Full Programme &nbsp;<i class="ri-arrow-down-line"></i>
+      </a>
+    </div>
+
+    <div class="hero-badge">Mine<span>2026</span></div>
+  </section>
+
+  <!-- ════════════════════════════
+       INVITATION CARD
+  ════════════════════════════ -->
+  <section id="invitation" class="s-ivory">
+    <div class="sh">
+      <div class="sh-line"></div>
+      <h2><i class="ri-mail-heart-line sh-ico"></i> The Invitation</h2>
+      <div class="sh-line"></div>
+    </div>
+    <p class="s-sub">Click the card to view full size</p>
+
+    <div class="iv-scene">
+      <div class="iv-bloom iv-bloom--1"></div>
+      <div class="iv-bloom iv-bloom--2"></div>
+      <div class="iv-card" id="ivCard">
+        <img src="optimized/Wedding%20IV.webp" alt="Mine 2026 — Inyene &amp; Marvellous Wedding Invitation"/>
+        <div class="iv-shine"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       ORDER OF SERVICE
+  ════════════════════════════ -->
+  <section id="programme" class="s-warm">
+    <div class="sh">
+      <div class="sh-line"></div>
+      <h2><i class="ri-book-open-line sh-ico"></i> Order of Service</h2>
+      <div class="sh-line"></div>
+    </div>
+    <p class="s-sub">The programme for the day</p>
+
+    <div class="order-wrap">
+      <ol class="order-list">
+        <li><span class="on">01</span><i class="ri-pray-line oi"></i><span class="ot">Opening Prayer</span></li>
+        <li><span class="on">02</span><i class="ri-music-2-line oi"></i><span class="ot">Praise Worship</span></li>
+        <li><span class="on">03</span><i class="ri-user-star-line oi"></i><span class="ot">Introduction of Ministers</span></li>
+        <li><span class="on">04</span><i class="ri-book-2-line oi"></i><span class="ot">Faithfood Review</span></li>
+        <li><span class="on">05</span><i class="ri-walk-line oi"></i><span class="ot">Ceremonial Arrival of Couple</span></li>
+        <li><span class="on">06</span><i class="ri-song-line oi"></i><span class="ot">Congregational Hymn</span></li>
+        <li><span class="on">07</span><i class="ri-mic-2-line oi"></i><span class="ot">Choir Ministration</span></li>
+        <li><span class="on">08</span><i class="ri-hand-coin-line oi"></i><span class="ot">Offering</span></li>
+        <li><span class="on">09</span><i class="ri-speak-line oi"></i><span class="ot">Message / Sermon</span></li>
+        <li><span class="on">10</span><i class="ri-money-dollar-circle-line oi"></i><span class="ot">Tithe</span></li>
+        <li class="o-special"><span class="on">11</span><i class="ri-heart-3-fill oi"></i><span class="ot">Joining of Couple</span></li>
+        <li class="o-special"><span class="on">12</span><i class="ri-pen-nib-line oi"></i><span class="ot">Signing of Register &amp; Declaration</span></li>
+        <li><span class="on">13</span><i class="ri-gift-line oi"></i><span class="ot">Thanksgiving</span></li>
+        <li><span class="on">14</span><i class="ri-camera-line oi"></i><span class="ot">Photograph with Officiating Ministers</span></li>
+        <li class="o-sword"><span class="on">15</span><i class="ri-sword-line oi"></i><span class="ot">Sword Presentation</span></li>
+        <li><span class="on">16</span><i class="ri-shield-cross-line oi"></i><span class="ot">Closing Prayer</span></li>
+        <li class="o-sword"><span class="on">17</span><i class="ri-sword-line oi"></i><span class="ot">Sword Crossing</span></li>
+        <li><span class="on">18</span><i class="ri-hand-heart-line oi"></i><span class="ot">Salutation</span></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       WEDDING CREW
+  ════════════════════════════ -->
+  <section id="crew" class="s-burg">
+    <div class="sh light">
+      <div class="sh-line"></div>
+      <h2><i class="ri-group-line sh-ico"></i> Wedding Crew</h2>
+      <div class="sh-line"></div>
+    </div>
+
+    <!-- Key roles -->
+    <div class="key-roles">
+      <div class="kr-card">
+        <i class="ri-user-star-fill kr-ico"></i>
+        <span class="kr-role">Best Man</span>
+        <span class="kr-name">Asi1 Er Okonna</span>
+      </div>
+      <div class="kr-center">
+        <div class="kr-mono">I <span>&amp;</span> M</div>
+        <p>United in Love</p>
+        <svg viewBox="0 0 40 36" class="kr-heart"><path d="M20 33C20 33 2 21 2 10C2 4 7 1 12 1C16 1 19 3 20 6C21 3 24 1 28 1C33 1 38 4 38 10C38 21 20 33 20 33Z" fill="currentColor"/></svg>
+      </div>
+      <div class="kr-card">
+        <i class="ri-user-heart-fill kr-ico"></i>
+        <span class="kr-role">Chief Bridesmaid</span>
+        <span class="kr-name">RN Scholarstica Ogbu</span>
+      </div>
+    </div>
+
+    <!-- Honour block -->
+    <div class="honour-row">
+      <div class="hb-card">
+        <i class="ri-vip-crown-line hb-ico"></i>
+        <span class="hb-role">Father of the Day</span>
+        <span class="hb-name">Pastor Joseph Mgbeonye</span>
+      </div>
+      <div class="hb-card">
+        <i class="ri-shield-star-line hb-ico"></i>
+        <span class="hb-role">Mothers of the Day</span>
+        <span class="hb-name">Mrs. Grace Nkan</span>
+        <span class="hb-name">Mrs. Augustine Sunday</span>
+      </div>
+      <div class="hb-card">
+        <i class="ri-ancient-gate-line hb-ico"></i>
+        <span class="hb-role">Royal Fathers of the Day</span>
+        <span class="hb-name">Eze Indibo Zazzau Emirates</span>
+        <span class="hb-name">Obong Mfon Idim</span>
+        <span class="hb-note">Akwa Ibom Association, Zaria</span>
+      </div>
+    </div>
+
+    <!-- Officers -->
+    <div class="roll-section">
+      <div class="rh"><i class="ri-shield-user-line rh-ico"></i><h3>Officers on Parade</h3></div>
+      <div class="parade-grid">
+        <div class="pg-name">Asi1 S Ibrahim</div><div class="pg-name">Asi1 IA Amao</div>
+        <div class="pg-name">Asi1 BB Mfonobong</div><div class="pg-name">Asi1 AA Bala</div>
+        <div class="pg-name">Asi1 AU Abdulhamid</div><div class="pg-name">Asi1 SA Sarki</div>
+        <div class="pg-name">Asi1 SR Lere</div><div class="pg-name">Asi1 M Yushau</div>
+        <div class="pg-name">Asi1 I Dahiru</div><div class="pg-name">Asi1 A Abdulsalam</div>
+        <div class="pg-name pg-wide">Asi1 NG Sabo <em>— Awaiting Big Man</em></div>
+        <div class="pg-name">Asi1 MB Nadabo</div><div class="pg-name">Asi1 S Ahmed</div>
+        <div class="pg-name">Asi1 MK Kisabo</div><div class="pg-name">Asi1 SG Usman</div>
+        <div class="pg-name">Asi1 LS Shettima</div><div class="pg-name">Asi1 IS Usman</div>
+        <div class="pg-name">Asi1 AY Badaru</div><div class="pg-name">Asi1 LT Ammani</div>
+        <div class="pg-name">Asi1 S Najumai</div><div class="pg-name">Asi1 MI Bayero</div>
+        <div class="pg-name">Asi1 RA Mahmood</div><div class="pg-name">Asi1 Er Okonna</div>
+        <div class="pg-name">Asi1 Anas Dantukur</div><div class="pg-name">Asi1 RA Oketunde</div>
+      </div>
+    </div>
+
+    <!-- Senators -->
+    <div class="roll-section">
+      <div class="rh"><i class="ri-suit-line rh-ico"></i><h3>Men in Senators</h3></div>
+      <div class="name-cloud senator-cloud">
+        <span>Emmy Large</span><span>Michael Kisabo</span><span>Idongesit Emma</span>
+        <span>Paul Dinah Maina</span><span>Abasikponke Duff</span>
+        <span>Adebayo Richard Oketunde</span><span>Francis Leo Leizzi</span>
+        <span>Yahaya Musa</span><span>Obi Mbeanosowo Akwo</span>
+        <span>Samuel Ezekiel Daniel</span><span>Patience Kefebusa Obi</span>
+        <span>Cornelius Lakpini</span><span>Ezra Sanas Hosea</span>
+        <span>Inimfon Alphonsus Udoh</span><span>Felix Okereke</span>
+        <span>Joseph Ogedengbe</span><span>Joel Maitamaki</span>
+        <span>Tobby Akpan Sylvester</span><span>Ajibo Kingsley</span>
+        <span>Benjamin Leonards</span><span>Moses Ugbedeojo Adamu</span>
+        <span>Ezekiel Tanimu</span><span>David Inaz</span>
+      </div>
+    </div>
+
+    <!-- Bridesmaids -->
+    <div class="roll-section">
+      <div class="rh"><i class="ri-flower-line rh-ico"></i><h3>Bridesmaids</h3></div>
+      <div class="name-cloud bride-cloud">
+        <span>Precious Alex</span><span>Ama's Touch</span><span>Glit Praise</span>
+        <span>Favour Nanlip Enoch</span><span>Ifeoma Favour Ojiakor</span>
+        <span>Midastouch</span><span>Best</span><span>Jennifer Patrick</span>
+        <span>Joyce Uche</span><span>Dachalia Fits</span><span>Favour Makama</span>
+        <span>Grace Reuben</span><span>Joy Alaegbu</span><span>Favour Chinyere Aguji</span>
+        <span>Leide Helen</span><span>Mma Jewelry</span><span>Mimi Femi</span>
+        <span>Rejoice Chukwuebuka</span><span>Tianamakeover</span>
+        <span>Nr. Chigrace</span><span>Nelo</span><span>Deborah Nweke</span>
+        <span>Helen Emmanuel</span><span>Ogu Pauline Ifeoma</span><span>Joy Nnaji</span>
+      </div>
+    </div>
+
+    <!-- Photo order -->
+    <div class="roll-section">
+      <div class="rh"><i class="ri-camera-3-line rh-ico"></i><h3>Order of Photograph</h3></div>
+      <div class="photo-grid">
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Officiating Ministers</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Men on Parade</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Best Man &amp; Chief Bridesmaid</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Bridal Train</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Asoebi Ladies</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Men in Senator</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Women in Ankara Asoebi</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Bride's Parents</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Groom's Parents</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Bride's Family</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Groom's Family</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Marriage Committee</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with NIS Officers</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with 48th SBC NIS Officers</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Zamar Nation Music</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with JPEM Women</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Matan Yabo</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Youth Alive LFC, Sabon Gari</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Voice of Glory Choir LFC</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with DYF JPEM</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with Praise Makers</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with DEMOSA 2010 Set</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with CTC Academy 2010 Set</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with ABU Alumni 2017</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with ABU Alumni 2023</div>
+        <div class="phg-item"><i class="ri-camera-line phg-i"></i>Couple with FCE Zaria Alumni 2013</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       MINISTERS
+  ════════════════════════════ -->
+  <section id="ministers" class="s-mint">
+    <div class="sh">
+      <div class="sh-line"></div>
+      <h2><i class="ri-hand-heart-line sh-ico"></i> Officiating Ministers</h2>
+      <div class="sh-line"></div>
+    </div>
+    <p class="s-sub">Men and women of God blessing this union</p>
+
+    <div class="ministers-list">
+      <div class="mi"><span class="mi-n">1</span><span class="mi-name">Rev. AK &amp; Pst. Mrs. S Gabaolu</span></div>
+      <div class="mi"><span class="mi-n">2</span><span class="mi-name">Pastor Yisa David</span></div>
+      <div class="mi"><span class="mi-n">3</span><span class="mi-name">Elder Chibuzor Ndukauba</span></div>
+      <div class="mi"><span class="mi-n">4</span><span class="mi-name">Elder Christopher Elekwachi</span></div>
+      <div class="mi"><span class="mi-n">5</span><span class="mi-name">Pastor Ihianyi Christian</span></div>
+      <div class="mi"><span class="mi-n">6</span><span class="mi-name">Pastor Emmanuel Fatade</span></div>
+      <div class="mi"><span class="mi-n">7</span><span class="mi-name">Pastor Joseph Mgbeonye</span></div>
+      <div class="mi"><span class="mi-n">8</span><span class="mi-name">Evangelist Chinyere Ndubueze</span></div>
+      <div class="mi"><span class="mi-n">9</span><span class="mi-name">Evangelist Samuel Okoronta</span></div>
+      <div class="mi"><span class="mi-n">10</span><span class="mi-name">Evangelist Ejikeme Elekwa</span></div>
+      <div class="mi"><span class="mi-n">11</span><span class="mi-name">Pastor Nick Uzor</span></div>
+      <div class="mi"><span class="mi-n">12</span><span class="mi-name">Pastor Roberts Akpan</span></div>
+      <div class="mi"><span class="mi-n">13</span><span class="mi-name">Pastor Frank Efosa</span></div>
+      <div class="mi"><span class="mi-n">14</span><span class="mi-name">Pastor Isaac Dalero</span></div>
+      <div class="mi"><span class="mi-n">15</span><span class="mi-name">Pastor Lanre Ashonibare</span></div>
+      <div class="mi"><span class="mi-n">16</span><span class="mi-name">Pastor Ahamefula</span></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       VENDORS
+  ════════════════════════════ -->
+  <section id="vendors" class="s-ivory">
+    <div class="sh">
+      <div class="sh-line"></div>
+      <h2><i class="ri-service-line sh-ico"></i> Our Vendors</h2>
+      <div class="sh-line"></div>
+    </div>
+    <p class="s-sub">The talented hands making this day perfect</p>
+
+    <div class="vendors-wrap">
+      <div class="vcard"><i class="ri-mic-fill vcico"></i><span class="vcat">Masters of Ceremony</span><span class="vnames">MC Uche &nbsp;·&nbsp; Hype MC Emryz</span></div>
+      <div class="vcard"><i class="ri-music-fill vcico"></i><span class="vcat">Choir &amp; Music</span><span class="vnames">Praise Makers JPEM &nbsp;·&nbsp; Zamar Nation Music</span></div>
+      <div class="vcard"><i class="ri-headphone-fill vcico"></i><span class="vcat">DJ</span><span class="vnames">DJ Tech</span></div>
+      <div class="vcard"><i class="ri-cake-3-fill vcico"></i><span class="vcat">Pastries &amp; Confectioneries</span><span class="vnames">PJ Pastries &nbsp;·&nbsp; Hunger Pills</span></div>
+      <div class="vcard"><i class="ri-restaurant-fill vcico"></i><span class="vcat">Catering</span><span class="vnames">Delightsome Tastes &nbsp;·&nbsp; Ngoo Foods</span></div>
+      <div class="vcard"><i class="ri-calendar-check-fill vcico"></i><span class="vcat">Event Planning</span><span class="vnames">Uwad Obio Global Services</span></div>
+      <div class="vcard"><i class="ri-camera-3-fill vcico"></i><span class="vcat">Photography &amp; Videography</span><span class="vnames">Vodzy Filmz &nbsp;·&nbsp; Oasis Studios</span></div>
+      <div class="vcard vcwide"><i class="ri-scissors-fill vcico"></i><span class="vcat">Make-up &amp; Fashion</span><span class="vnames">Pearl Clothings · Serenitees Couture · O.G Shoes · Solely Eko · Alladams Fashion · Vinecitycouture · Mosesglam · Ama's Touch</span></div>
+      <div class="vcard"><i class="ri-printer-fill vcico"></i><span class="vcat">Prints &amp; Souvenirs</span><span class="vnames">Majid Prints &nbsp;·&nbsp; Rufus</span></div>
+      <div class="vcard"><i class="ri-flower-line vcico"></i><span class="vcat">Decorations</span><span class="vnames">West Brown &nbsp;·&nbsp; Frank Event</span></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       COURT WEDDING
+  ════════════════════════════ -->
+  <section id="court" class="s-coffee">
+    <div class="sh light">
+      <div class="sh-line"></div>
+      <h2><i class="ri-award-line sh-ico"></i> Court Wedding</h2>
+      <div class="sh-line"></div>
+    </div>
+    <p class="s-sub light">The legal solemnization of their union</p>
+
+    <div class="gallery-stagger" id="courtGallery">
+      <!-- JS fills: alternating left/right large + small -->
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       INTRODUCTION
+  ════════════════════════════ -->
+  <section id="introduction" class="s-ivory">
+    <div class="sh">
+      <div class="sh-line"></div>
+      <h2><i class="ri-team-line sh-ico"></i> The Introduction</h2>
+      <div class="sh-line"></div>
+    </div>
+    <p class="s-sub">When two families became one</p>
+
+    <div class="gallery-editorial" id="introGallery">
+      <!-- JS fills: featured + side strip layout -->
+    </div>
+  </section>
+
+  <!-- ════════════════════════════
+       PRE-WEDDING
+  ════════════════════════════ -->
+  <section id="prewedding" class="s-emerald">
+    <div class="sh light">
+      <div class="sh-line"></div>
+      <h2><i class="ri-heart-3-line sh-ico"></i> Pre-Wedding Shoot</h2>
+      <div class="sh-line"></div>
+    </div>
+    <p class="s-sub light">Captured in love, framed in gold</p>
+
+    <div class="gallery-film" id="preGallery">
+      <!-- JS fills: cinematic widescreen filmstrip -->
+    </div>
+    <p class="film-hint">
+      <i class="ri-arrow-left-right-line"></i> Scroll to explore
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="foot-hearts">
+      <i class="ri-heart-3-fill fh"></i>
+      <i class="ri-heart-3-fill fh fh--lg"></i>
+      <i class="ri-heart-3-fill fh"></i>
+    </div>
+    <div class="foot-mono">I <span>&amp;</span> M</div>
+    <p class="foot-names">Inyene Anthony Isong &amp; Marvellous Chidiebere David</p>
+    <p class="foot-date">Saturday, 11th October 2026 · Kaduna, Nigeria</p>
+    <div class="foot-rule"></div>
+    <p class="foot-verse">"This is the day the LORD has made; we will rejoice and be glad in it." — Psalm 118:24</p>
+    <div class="foot-rsvp">
+      <i class="ri-phone-fill"></i>
+      <a href="tel:08162660707">08162660707</a>
+      <a href="tel:07043621193">07043621193</a>
+      <a href="tel:07066685135">07066685135</a>
+      <a href="tel:09049472454">09049472454</a>
+    </div>
+    <p class="foot-credit">Made with <i class="ri-heart-fill"></i> · Mine 2026</p>
+  </footer>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox">
+    <button id="lbClose" aria-label="Close"><i class="ri-close-line"></i></button>
+    <button id="lbPrev" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></button>
+    <div id="lbStage"><img id="lbImg" src="" alt=""/></div>
+    <button id="lbNext" aria-label="Next"><i class="ri-arrow-right-s-line"></i></button>
+    <div id="lbInfo"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

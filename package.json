@@ -1,0 +1,11 @@
+{
+  "name": "mine-2026-wedding",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "images:compress": "node scripts/compress-images.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.35.5"
+  }
+}
