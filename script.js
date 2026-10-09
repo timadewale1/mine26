@@ -21,6 +21,8 @@ const GALLERIES = {
       'Court wed 7.jpeg','Court wed 8.jpeg','Court wed 9.jpeg',
       'Court wed 10.jpeg','Court wed 11.jpeg','Court wed 12.jpeg',
       'Court wed 13.jpeg','Court wed 14.jpeg','Court wed 15.jpeg',
+      'Court wed 16.jpeg','Court wed 17.jpeg','Court wed 18.jpeg',
+      'Court wed 19.jpeg','Court wed 20.jpeg'
     ]
   },
   intro: {

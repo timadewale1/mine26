@@ -225,8 +225,14 @@ a    { color:inherit; text-decoration:none; }
   gap:2vw; flex-wrap:wrap; margin-bottom:2.5rem;
 }
 .hn-side { display:flex; flex-direction:column; align-items:center; }
+.hn-name-row {
+  display:flex; align-items:flex-end; justify-content:center; gap:.45rem;
+  flex-wrap:wrap; text-align:center;
+}
 .hn-script { font-family:var(--script); font-size:clamp(3.5rem,10vw,7.5rem); color:var(--ivory); line-height:1.05; }
-.hn-sub    { font-family:var(--label); font-size:.6rem; letter-spacing:.25em; color:var(--mint-lt); margin-top:-.2rem; }
+.hn-sub    { font-family:var(--label); font-size:.9rem; letter-spacing:.12em; color:var(--ivory); margin-top:.15rem; }
+.rank-inline { font-family:var(--serif); font-size:clamp(1rem,2vw,1.35rem); letter-spacing:0; font-style:normal; color:#111111; line-height:1; }
+.rank-inline sup { font-size:.72em; vertical-align:super; }
 .hn-heart-wrap { flex-shrink:0; }
 .hn-heart { width:clamp(24px,4vw,36px); color:var(--burg-m); animation:hBeat 1.8s ease-in-out infinite; }
 @keyframes hBeat { 0%,100%{transform:scale(1)} 14%{transform:scale(1.28)} 28%{transform:scale(1)} 42%{transform:scale(1.16)} }
@@ -559,6 +565,14 @@ li.o-sword .ot   { color:var(--coffee-lt); font-style:italic; }
 .photo-grid {
   display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:8px;
   counter-reset:pg;
+}
+.hymn-box {
+  max-width: 720px; margin: 0 auto; padding: 0; text-align: center;
+  background: rgba(250,246,238,.96); border: none; box-shadow: none;
+}
+.hymn-box p {
+  margin: 0 0 .45rem; color: #111111; opacity: 1;
+  font-family: var(--serif); font-size: 1rem; line-height: 1.7; font-weight: 500;
 }
 .phg-item {
   display:flex; align-items:center; gap:.75rem;
