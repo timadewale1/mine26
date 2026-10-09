@@ -16,6 +16,7 @@ const GALLERIES = {
   court: {
     folder: 'Court wedding',
     files: [
+      'court-video.mp4',
       'Court wed 1.jpeg','Court wed 2.jpeg','Court wed 3.jpeg',
       'Court wed 4.jpeg','Court wed 5.jpeg','Court wed 6.jpeg',
       'Court wed 7.jpeg','Court wed 8.jpeg','Court wed 9.jpeg',
@@ -35,29 +36,58 @@ const GALLERIES = {
   pre: {
     folder: 'Pre wedding',
     files: [
+      'pre-video-1.mp4', 'pre-video-2.mp4',
       'prewed 1.jpeg','prewed 2.jpeg','prewed 3.jpeg',
       'prewed 4.jpeg','prewed 5.jpeg','prewed 6.jpeg',
       'prewed 7.jpeg','prewed 8.jpeg','prewed 9.jpeg',
       'prewed 10.jpeg','prewed 11.jpeg','prewed 12.jpeg',
-      'prewed 13.jpeg','prewed 14.jpeg',
+      'prewed 13.jpeg','prewed 14.jpeg'
     ]
   }
 };
 
+function isVideoAsset(file) {
+  return /\.(mp4|webm|ogg|mov|m4v)$/i.test(file || '');
+}
+
 function url(folder, file) {
+  if (isVideoAsset(file)) {
+    return `videos/compressed/${encodeURIComponent(file)}`;
+  }
   const optimizedFile = file.replace(/\.(?:jpe?g|png|webp)$/i, '.webp');
   return `optimized/${encodeURIComponent(folder)}/${encodeURIComponent(optimizedFile)}`;
+}
+
+function createMediaNode(src, alt) {
+  if (isVideoAsset(src)) {
+    const video = document.createElement('video');
+    video.src = src;
+    video.alt = alt;
+    video.playsInline = true;
+    video.muted = true;
+    video.loop = true;
+    video.autoplay = true;
+    video.preload = 'metadata';
+    video.setAttribute('aria-label', alt);
+    return video;
+  }
+
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = alt;
+  img.loading = 'lazy';
+  return img;
 }
 
 /* ──────────────────────────────────────────
    LIGHTBOX
 ────────────────────────────────────────────*/
 const lb       = document.getElementById('lightbox');
-const lbImg    = document.getElementById('lbImg');
+const lbStage  = document.getElementById('lbStage');
 const lbInfo   = document.getElementById('lbInfo');
 let lbUrls = [], lbIdx = 0;
-
-lbImg.style.transition = 'opacity .18s, transform .18s';
+let lbMedia = document.getElementById('lbImg');
+lbMedia.style.transition = 'opacity .18s, transform .18s';
 
 function openLb(urls, idx) {
   lbUrls = urls; lbIdx = idx;
@@ -67,17 +97,53 @@ function openLb(urls, idx) {
 }
 function closeLb() {
   lb.classList.remove('open');
+  if (lbMedia.tagName === 'VIDEO') lbMedia.pause();
   document.body.style.overflow = '';
 }
+function setLbMedia(src) {
+  if (lbMedia.tagName === 'VIDEO') lbMedia.pause();
+  const isVideo = isVideoAsset(src);
+  const nextMedia = document.createElement(isVideo ? 'video' : 'img');
+  nextMedia.id = isVideo ? 'lbVideo' : 'lbImg';
+  nextMedia.src = src;
+  if (isVideo) {
+    nextMedia.controls = true;
+    nextMedia.autoplay = true;
+    nextMedia.playsInline = true;
+    nextMedia.preload = 'metadata';
+    nextMedia.muted = false;
+    nextMedia.volume = 1;
+  } else {
+    nextMedia.alt = 'Wedding gallery image';
+  }
+  nextMedia.style.transition = 'opacity .18s, transform .18s';
+  lbMedia.replaceWith(nextMedia);
+  lbMedia = nextMedia;
+  lbInfo.textContent = lbUrls.length > 1 ? `${lbIdx + 1} / ${lbUrls.length}` : '';
+  lbMedia.style.opacity = '1'; lbMedia.style.transform = 'scale(1)';
+  return isVideo;
+}
 function showSlide() {
-  lbImg.style.opacity = '0'; lbImg.style.transform = 'scale(.96)';
-  setTimeout(() => {
-    lbImg.src = lbUrls[lbIdx] || '';
-    lbInfo.textContent = lbUrls.length > 1 ? `${lbIdx + 1} / ${lbUrls.length}` : '';
-    lbImg.style.opacity = '1'; lbImg.style.transform = 'scale(1)';
-  }, 170);
+  const src = lbUrls[lbIdx] || '';
+  if (isVideoAsset(src)) {
+    setLbMedia(src);
+    lbMedia.play().catch(() => {});
+    return;
+  }
+
+  lbMedia.style.opacity = '0'; lbMedia.style.transform = 'scale(.96)';
+  setTimeout(() => setLbMedia(src), 170);
 }
 function lbNav(d) { lbIdx = (lbIdx + d + lbUrls.length) % lbUrls.length; showSlide(); }
+
+function openGalleryItem(container, selector, item) {
+  const items = [...container.querySelectorAll(`${selector}:not([style*="none"])`)];
+  const urls = items
+    .map(element => element.querySelector('img, video'))
+    .filter(Boolean)
+    .map(media => media.currentSrc || media.src);
+  openLb(urls, Math.max(0, items.indexOf(item)));
+}
 
 document.getElementById('lbClose').addEventListener('click', closeLb);
 document.getElementById('lbPrev').addEventListener('click', () => lbNav(-1));
@@ -106,15 +172,17 @@ function buildCourtGallery() {
   urls.forEach((src, i) => {
     const div = document.createElement('div');
     div.className = 'gs-item';
-    div.innerHTML = `
-      <img src="${src}" alt="Court Wedding ${i+1}" loading="lazy"/>
-      <div class="gs-overlay"><span>${folder}</span></div>
-    `;
-    div.querySelector('img').onerror = () => { div.style.display = 'none'; };
+    const media = createMediaNode(src, `Court Wedding ${i + 1}`);
+    div.appendChild(media);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'gs-overlay';
+    overlay.innerHTML = `<span>${folder}</span>`;
+    div.appendChild(overlay);
+
+    media.onerror = () => { div.style.display = 'none'; };
     div.addEventListener('click', () => {
-      const visible = [...container.querySelectorAll('.gs-item:not([style*="none"]) img')].map(im => im.src);
-      const thisIdx = [...container.querySelectorAll('.gs-item:not([style*="none"])')].indexOf(div);
-      openLb(visible, Math.max(0, thisIdx));
+      openGalleryItem(container, '.gs-item', div);
     });
     // Stagger fade-in
     div.style.cssText = `opacity:0;transition:opacity .6s ${i * 60}ms, transform .6s ${i * 60}ms;transform:translateY(20px)`;
@@ -194,16 +262,22 @@ function buildPreGallery() {
   urls.forEach((src, i) => {
     const div = document.createElement('div');
     div.className = 'gf-item';
-    div.innerHTML = `
-      <img src="${src}" alt="Pre-Wedding ${i+1}" loading="lazy"/>
-      <div class="gf-overlay"><span>Pre-Wedding</span></div>
-      <span class="gf-num">${String(i+1).padStart(2,'0')}</span>
-    `;
-    div.querySelector('img').onerror = () => { div.style.display='none'; };
+    const media = createMediaNode(src, `Pre-Wedding ${i + 1}`);
+    div.appendChild(media);
+
+    const overlay = document.createElement('div');
+    overlay.className = 'gf-overlay';
+    overlay.innerHTML = '<span>Pre-Wedding</span>';
+    div.appendChild(overlay);
+
+    const num = document.createElement('span');
+    num.className = 'gf-num';
+    num.textContent = String(i + 1).padStart(2, '0');
+    div.appendChild(num);
+
+    media.onerror = () => { div.style.display = 'none'; };
     div.addEventListener('click', () => {
-      const visible = [...container.querySelectorAll('.gf-item:not([style*="none"]) img')].map(im => im.src);
-      const thisIdx = [...container.querySelectorAll('.gf-item:not([style*="none"])')].indexOf(div);
-      openLb(visible, Math.max(0, thisIdx));
+      openGalleryItem(container, '.gf-item', div);
     });
     container.appendChild(div);
   });

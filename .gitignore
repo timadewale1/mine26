@@ -3,3 +3,5 @@ node_modules/
 /Introduction/
 /Pre wedding/
 /Wedding IV.jpeg
+/videos/*
+!/videos/compressed/

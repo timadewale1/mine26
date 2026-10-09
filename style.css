@@ -352,8 +352,10 @@ a    { color:inherit; text-decoration:none; }
   overflow:hidden; cursor:pointer; position:relative;
   background:rgba(200,160,64,.06);
 }
-.gs-item img { width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); }
-.gs-item:hover img { transform:scale(1.08); }
+.gs-item img,
+.gs-item video { width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); }
+.gs-item:hover img,
+.gs-item:hover video { transform:scale(1.08); }
 /* Stagger span patterns */
 .gs-item:nth-child(3n+1) { grid-row:span 2; }   /* tall on 1st of each group */
 .gs-item:nth-child(5)    { grid-column:span 2; } /* wide mid */
@@ -437,8 +439,10 @@ a    { color:inherit; text-decoration:none; }
   transition:transform .4s var(--ease);
 }
 .gf-item:hover { transform:scale(1.02) translateY(-4px); }
-.gf-item img { width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); }
-.gf-item:hover img { transform:scale(1.07); }
+.gf-item img,
+.gf-item video { width:100%; height:100%; object-fit:cover; transition:transform .7s var(--ease); }
+.gf-item:hover img,
+.gf-item:hover video { transform:scale(1.07); }
 .gf-overlay {
   position:absolute; inset:0;
   background:linear-gradient(to top, rgba(27,77,62,.6) 0%, rgba(27,77,62,.1) 40%, transparent 65%);
@@ -665,8 +669,9 @@ li.o-sword .ot   { color:var(--coffee-lt); font-style:italic; }
   opacity:0; visibility:hidden; transition:opacity .35s, visibility .35s;
 }
 #lightbox.open { opacity:1; visibility:visible; }
-#lbStage { max-width:min(92vw,600px); max-height:88vh; }
-#lbImg   { max-height:86vh; width:auto; max-width:100%; object-fit:contain; box-shadow:0 20px 70px rgba(0,0,0,.55); transition:opacity .2s,transform .2s; }
+#lbStage { max-width:min(92vw,900px); max-height:88vh; width:100%; display:flex; align-items:center; justify-content:center; }
+#lbStage img,
+#lbStage video { max-height:86vh; width:auto; max-width:100%; object-fit:contain; box-shadow:0 20px 70px rgba(0,0,0,.55); transition:opacity .2s,transform .2s; }
 #lbClose,#lbPrev,#lbNext {
   background:none; border:1px solid rgba(200,160,64,.3); color:var(--ivory); cursor:pointer;
   border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.3rem;
@@ -1073,7 +1078,7 @@ li.o-sword .ot { color: var(--ink-m); }
 .foot-credit { color: #e4eee6; font-size: .8rem; letter-spacing: .04em; }
 .foot-credit i { color: var(--coral-lt); }
 #lightbox { background: rgba(13, 37, 29, .97); }
-#lbImg { box-shadow: 0 18px 70px rgba(0, 0, 0, .35); }
+#lbStage img, #lbStage video { box-shadow: 0 18px 70px rgba(0, 0, 0, .35); }
 #lbClose, #lbPrev, #lbNext { border-color: var(--gold-lt); color: #fffdf8; }
 #lbInfo { color: #fffdf8; font-size: .82rem; letter-spacing: .04em; }
 
